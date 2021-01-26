@@ -1,0 +1,12 @@
+{
+  "name": "tain-mobile",
+  "displayName": "tain-mobile",
+  "expo": {
+    "name": "tain-mobile",
+    "slug": "tain-mobile",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
