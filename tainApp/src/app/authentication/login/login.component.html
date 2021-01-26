@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="mt-5" >
+    
+      <form class="form-signin">
+        <div class="text-center mb-4 mt-5">
+          <h1 class="h3 mb-3 font-weight-normal">Login<span>&nbsp;|&nbsp;Signup</span></h1>
+        </div>
+        <div *ngIf="loginResponse != null" class="alert">{{loginResponse.responseMessage}}</div>
+        <div class="form-label-group">
+          <input type="email"  formControlName="userName"  class="form-control" placeholder="Email address" required autofocus="">
+          <label for="inputEmail">Email address or Username</label>
+        </div>
+    
+        <div class="form-label-group">
+          <input  type="password" id="password"  formControlName="passWd" min-length="8" class="form-control" placeholder="Password" required>
+          <label for="password">Password</label>
+        </div>
+    
+        <div class="checkbox mb-3">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <div class="mb-1 d-flex justify-content-center">
+            <a href="#">Forgot Username</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="#">Forgot Password</a>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" [disabled]="!loginGrp.valid" type="submit">Sign in</button>
+        <p class="mt-5 mb-3 text-muted text-center">© 2017-2020</p>
+      </form>
+      <div class="row">
+        <div class="d-flex justify-content-center">
+        Don't have an account yet?&nbsp;<a href="/signup">Register here</a>
+      </div>
+      </div>
+    </div>
+    </div>
