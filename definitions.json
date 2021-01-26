@@ -1,0 +1,64 @@
+{
+ "rabbit_version": "3.6.6",
+ "users": [
+  {
+   "name": "user1",
+   "password_hash": "pass1",
+   "hashing_algorithm": "rabbit_password_hashing_sha256",
+   "tags": ""
+  },
+  {
+   "name": "adminuser",
+   "password_hash": "adminpass",
+   "hashing_algorithm": "rabbit_password_hashing_sha256",
+   "tags": "administrator"
+  }
+ ],
+ "vhosts": [
+  {
+   "name": "\/vhost1"
+  },
+  {
+   "name": "\/vhost2"
+  }
+ ],
+ "permissions": [
+  {
+   "user": "user1",
+   "vhost": "\/vhost1",
+   "configure": ".*",
+   "write": ".*",
+   "read": ".*"
+  }
+ ],
+  "exchanges": [
+    {
+      "name": "jenkins",
+      "vhost": "/",
+      "type": "fanout",
+      "durable": true,
+      "auto_delete": false,
+      "internal": false,
+      "arguments": {}
+    }
+  ],
+  "queues": [
+    {
+      "name": "jenkins",
+      "vhost": "/",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {}
+    }
+  ],
+  "bindings": [
+    {
+      "source": "jenkins",
+      "vhost": "/",
+      "destination": "jenkins",
+      "destination_type": "queue",
+      "routing_key": "*",
+      "arguments": {}
+    }
+  ]
+}
