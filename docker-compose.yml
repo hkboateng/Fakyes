@@ -1,0 +1,18 @@
+# For development this compose file starts the database only. 
+
+version: '3'
+
+services:
+    db:
+        image: postgres:13.1
+        restart: unless-stopped
+        ports:
+            - "5432:5432"
+        environment:
+            - POSTGRES_PASSWORD=fakyes
+            - POSTGRES_USER=fakyes
+            - POSTGRES_DB=abankus
+        volumes:
+            - abankusdata:/var/lib/postgresql/data
+volumes:
+    abankusdata:

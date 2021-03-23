@@ -1,19 +1,24 @@
 import React, {useState} from 'react';
-import { StyleSheet, Text, View, TextInput } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button, Alert } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 /**Author: Hubert */
 const Authorize = () =>{
-  const [authCode, setText] = useState('Enter Code here');
+  const [authCode, setText] = useState(':');
   return (
-    <View  style={{padding: 10}}>
+    <View  style={{padding: 20, backgroundColor: '#008080'}}>
+      <Text style={{height: 20, fontSize:16,marginTop:25}}>Enter your Access Code:</Text>
       <TextInput
-        style={{height: 20}}
+        style={{marginBottom: 5,marginTop:10, borderColor:'black', backgroundColor:'#fff', borderWidth: 1,paddingLeft:5}}
         placeholder="Type here to translate!"
         onChangeText={authCode => setText(authCode)}
         defaultValue={authCode}
       />
-      <Text style={{padding: 10, fontSize: 42}}>
+      <Button
+        title="Submit"
+        onPress={() => Alert.alert('Simple Button pressed')}
+      />
+      <Text style={{padding: 10,marginTop:30, fontSize: 24}}>
       {authCode}
     </Text>       
     </View>

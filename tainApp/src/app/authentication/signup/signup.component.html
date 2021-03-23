@@ -1,1 +1,55 @@
-<p>signup works!</p>
+<div class="container">
+    <h3>Create User</h3>
+    <div class="rows">
+        <form formGroup=[formGroup]>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>First Name:</label>
+                    <input type="text" class="form-control" placeholder="First Name" formControlName="firstName">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>Last Name:</label>
+                    <input type="text" class="form-control" placeholder="Last Name" formControlName="lastName">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>Email Address:</label>
+                    <input type="text" class="form-control" placeholder="Enter Email Address" formControlName="emailAddress">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label> Party Affiliation:</label>
+                    <select class="form-control" name="partyAffiliate" formControlName="partyAffiliate">
+                        <option value="" selected>Select Party</option>
+                        <option value="chicken">Chicken Party</option>
+                    </select>
+                </div>
+            </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>Username:</label>
+              <input type="text" class="form-control" placeholder="Enter Username" formControlName="username">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>Password:</label>
+              <input type="password" class="form-control" placeholder="Enter Password" formControlName="password">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>Confirm Password:</label>
+              <input type="password" class="form-control" placeholder="Confirm Password" formControlName="confirmPasswd">
+            </div>
+          </div>
+            <div>
+                <input type="button" class="btn btn-primary" value="Submit" (click)="submitSignup()" />
+            </div>
+        </form>
+    </div>
+</div>
