@@ -7,6 +7,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
+<script>
+
+    window.onbeforeunload = function(e) {
+        let date = Date.now();
+        localStorage.setItem("lastactivity", date);
+    };
+    window.onload = function() {
+        const key = "user"
+        let date1 = localStorage.getItem('lastactivity');
+        let date2 = Date.now();
+        if (date1 !== undefined) {
+         let difference = date2 - date1;
+         let diff = ((difference) / 1000).toFixed(0);
+         if (diff >= 5) {
+            localStorage.clear();
+            location.reload();
+         }
+        }
+    };
+</script>
 <body>
   <app-root></app-root>
 </body>

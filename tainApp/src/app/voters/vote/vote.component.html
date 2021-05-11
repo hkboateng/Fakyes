@@ -1,0 +1,30 @@
+<div class="container mt-1">
+    <div class="row">
+        <h3>Cast Vote</h3>
+    </div>
+    <div class="row">Candidates to Vote for:</div>
+    <hr>
+    <div *ngIf="message" class="alert alert-info">{{message}}</div>
+    <div class="row">
+        
+        <form  [formGroup]="voteForm">
+            <div class="col-md-12 mb-3">
+                <div class=""*ngFor="let individual of individualList, index as i">
+                    <input class="form-check-input" type="radio" name="voteCast" formControlName="voteCast" value="{{individual?.candidateId}}">
+                    <label>
+                        <span>{{individual?.firstName}} &nbsp; {{individual?.lastName}}</span><br>
+                        <span><b>{{individual?.candidateSymbol}}</b></span>
+                    </label>
+
+                </div>
+                <div *ngIf="!individualList?.length" class="col">
+                    No Election candidate was found.
+                </div>
+            </div>
+        </form>
+    <hr>
+    <div class="col-md-12">
+        <input *ngIf="individualList?.length" type="button" (click)="submitVote()" class="btn btn-primary" value="Cast Vote">
+        <a [routerLink]="" (click)="cancel()">Cancel</a>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="container">
+    <h3>{{electionName}}Election Detail</h3>
+    <div class="row">
+        <div>
+            Election Name: {{electionDetail?.electionName}}
+            Start Date: {{electionDetail?.electionStartDateTime | date}} &nbsp; End Date: {{electionDetail?.electionEndDateTime |date}}
+            Election Status: {{electionStatus}}
+        </div>
+    </div>
+    <div class="row">
+        <h4>Election Analytics</h4>
+    </div>
+</div>

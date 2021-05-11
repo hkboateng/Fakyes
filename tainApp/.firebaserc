@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "electionapp-h04f03": {
+      "hosting": {
+        "tain-app": [
+          "electionapp-h04f03"
+        ]
+      }
+    }
+  }
+}

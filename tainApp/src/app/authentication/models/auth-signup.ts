@@ -1,8 +1,9 @@
 export interface Signup {
     firstName: string,
     lastName: string,
-    partyAffiliate: string,
+    uid: string,
     emailAddress: string,
     username: string,
-    password:string
+    password:string,
+    administratorType: string
 }

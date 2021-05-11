@@ -1,0 +1,28 @@
+<div class="container">
+    <p>{{message}}</p>
+    <h3>List of Administrators and Election Officials</h3>
+    <div class="row">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Full Name</th>
+                    <th>Email Address</th>
+                    <th>Administrator Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let admin of adminList, index as i">
+                    <td>{{admin?.firstName}} &nbsp; {{admin?.lastName}}</td>
+                    <td>{{admin?.emailAddress}}</td>
+                    <td>{{admin?.administratorType}}</td>
+                </tr>
+                <tr *ngIf="adminList.length == 0">
+                    <td colspan="3">No Result was found</td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <input type="button" class="btn btn-primary" value="Add Administrator" (click)="addAdministrator()"/>
+        </div>
+    </div>
+</div>

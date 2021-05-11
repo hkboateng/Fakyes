@@ -1,12 +1,20 @@
-<header class="platform-header py-3">
-    <div class="row flex-nowrap justify-content-between align-items-center">
-      <div class="col-4 pt-1">
-          <a class="platform-header-logo text-dark" href="#">Poll App</a>
-      </div>
-      <div class="col-4 d-flex justify-content-end align-items-center">
-        <a *ngIf="!isAuth" class="btn btn-sm btn-outline-secondary" href="/login"><i class="fa fa-3x fa-sign-in"></i></a>
-        <a *ngIf="isAuth" class="btn btn-sm btn-outline-secondary" href="/login"><i class="fa fa-3x fa-user"></i></a>
 
+  <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+    <a class="navbar-brand" href="#">Election App</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav"  *ngIf="!isAuth">
+        <a  *ngIf="userType !== 'voter'" class="nav-link active" [routerLink]="['voter-list']">Voter's List</a>
+        <a  *ngIf="userType !== 'voter'" class="nav-link"  [routerLink]="['election-list']">Election List</a>
+        <a  *ngIf="userType !== 'voter'" class="nav-link" [routerLink]="['admin-list']">Admin List</a>
+        <a   *ngIf="userType !== 'voter'"class="nav-link"  [routerLink]="['add-candidate']">New Candidate {{userType}}</a>
       </div>
     </div>
-  </header>
+    <div class="col-4 d-flex justify-content-end align-items-center">
+      <a *ngIf="!isAuth" class="btn btn-sm btn-outline-secondary" [routerLink]="['authentication/login']"><i class="fa fa-3x fa-sign-in"></i></a>
+      <a *ngIf="isAuth" class="btn btn-sm btn-outline-secondary" [routerLink]="" (click)="signOut()"><i class="fa fa-3x fa-user"></i></a>
+
+    </div>
+  </nav>

@@ -1,5 +1,8 @@
 <div class="container">
   <h3>List of Elections</h3>
+  <div class="row-group mb-1">
+    <button class="btn btn-primary" (click)="newElection()">Add New Election</button>
+  </div>
   <div class="table-responsive-md">
     <table class="table table-hover  table-bordered" name="election-list-table">
       <thead class="thead-dark">
@@ -7,18 +10,19 @@
           <th scope="col">Election Name</th>
           <th scope="col">Start Date/Time</th>
           <th scope="col">End Date/Time</th>
-          <th  scope="col" colspan="2">Actions</th>
+          <th  scope="col">Action</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Testing</td>
-          <td>02/05/2021 | date</td>
-          <td>02/05/2021 | date</td>
-          <td><a href="#">Add Voters</a></td>
-          <td><a href="#">View Analytics</a></td>
+
+        <tr *ngFor="let election of electionList, index as i">
+          <td><a [routerLink]="['/election-detail', election?.electionUniqueId]">{{election?.electionName}}</a></td>
+          <td>{{election?.electionStartDateTime | date: 'MM/dd/yyyy hh:mm:ss a'}}</td>
+          <td>{{election?.electionEndDateTime | date: 'MM/dd/yyyy hh:mm:ss a'}}</td>
+          <td><a  [routerLink]="['/create-voter', election?.electionId]">Add Election Voter</a></td>
         </tr>
       </tbody>
     </table>
   </div>
+
 </div>

@@ -1,13 +1,24 @@
 <div class="container">
   <h2>Create Voter</h2>
-  <form>
+  <div class="">
+  <form [formGroup]="voterForm">
+    <div class="row" >
+      <div class="form-group col-md-6">
+        <label id="first_name">First Name:</label>
+        <input class="form-control" type="text"  formControlName="firstName" id="first_name" value="" required/>
+      </div>
+      <div class="form-group col-md-6">
+        <label id="last_name">Last Name:</label>
+          <input class="form-control" type="text" formControlName="lastName" id="last_name" value="" required/>
+      </div>
     <div class="form-group col-md-6">
       <label for="emailAddress">Email Address:</label>
-      <input type="text" class="form-control" name="emailAddress" id="emailAddress" />
+      <input type="text" class="form-control" aria-describedby="emaildHelpBlock" formControlName="emailAddress" name="emailAddress" id="emailAddress" />
+      <small  id="emaildHelpBlock" class="form-text text-muted">Your Email address will also be user username.</small>
     </div>
     <div class="form-group col-md-6">
       <label for="gender">Select your gender:</label>
-      <select class="form-control" name="gender" id="gender">
+      <select class="form-control" formControlName="gender" name="gender" id="gender">
         <option value=""></option>
         <option value="male">Male</option>
         <option value="female">Female</option>
@@ -15,14 +26,28 @@
     </div>
     <div class="form-group col-md-6">
       <label for="race">Race/Ethnicity:</label>
-      <select class="form-control" name="race" id="race">
+      <select class="form-control" formControlName="race" name="race" id="race">
         <option value=""></option>
         <option value="black">Black or African Origin</option>
         <option value="hispanic">Hispanic or Latino</option>
       </select>
     </div>
+    <div class="form-group col-md-6">
+      <label for="race">Voter will be added to Election Id: <b>{{electionId}}</b></label>
+    </div> 
+      <div class="form-group col-md-6">
+          <label for="password">Password:</label>
+          <input type="password" formControlName="password" class="form-control" placeholder="Password"/>
+      </div>  
+      <div class="form-group col-md-6">
+          <label for="confirmPassword">Confirm Password:</label>
+          <input type="password" formControlName="confirmPasswd" class="form-control" placeholder="Confirm Password"/>
+      </div>     
+    </div>
       <div>
-        <input type="button" class="btn btn-primary" value="Create Voter" />
+        <input type="button" class="btn btn-primary" value="Create Voter" (click)="saveVoter()" [disabled]="!voterForm.valid" />
+        <a [routerLink]="" (click)="cancel()">Cancel</a>
       </div>
   </form>
+</div>
 </div>
